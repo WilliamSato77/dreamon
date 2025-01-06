@@ -1,11 +1,15 @@
+import React from 'react';
+
 function About() {
-    return (
-      <div>
-        <h1>About Us</h1>
-        <p>DreamOn is a platform dedicated to providing flexible part-time lessons for professionals and learners worldwide.</p>
-      </div>
-    );
-  }
-  
-  export default About;
-  
+  return (
+    <div style={{ padding: '30px' }}>
+      <h1>About DreamOn</h1>
+      <p>
+        DreamOn is your trusted platform for professional and part-time courses in various
+        disciplines. We aim to make education accessible and flexible for everyone.
+      </p>
+    </div>
+  );
+}
+
+export default About;
