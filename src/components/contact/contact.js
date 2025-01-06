@@ -1,10 +1,28 @@
-import React, { Component } from 'react'
-
- class contact extends Component {
-  render() {
+function Contact() {
     return (
-      <div>contact</div>
-    )
+      <div>
+        <h1>Contact Us</h1>
+        <form>
+          <label>
+            Name:
+            <input type="text" name="name" required />
+          </label>
+          <br />
+          <label>
+            Email:
+            <input type="email" name="email" required />
+          </label>
+          <br />
+          <label>
+            Message:
+            <textarea name="message" required></textarea>
+          </label>
+          <br />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    );
   }
-}
-export default contact;
+  
+  export default Contact;
+  

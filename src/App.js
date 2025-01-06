@@ -1,11 +1,11 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Nav from './components/navigation/nav.js';
-import Footer from './components/footer/footer.js';
-import Home from './components/home/home.js';
-import About from './components/about/about.js';
-import Courses from './components/courses/courses.js';
-import Contact from './components/contact/contact.js';
+import Nav from './components/navigation/Nav.js';
+import Footer from './components/footer/Footer.js';
+import Home from './components/home/Home.js';
+import About from './components/about/About.js';
+import Courses from './components/courses/Courses.js';
+import Contact from './components/contact/Contact.js';
 
 function App() {
   return (
