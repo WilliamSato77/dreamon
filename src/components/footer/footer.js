@@ -14,14 +14,7 @@ function Footer() {
     >
       <Grid container spacing={4} justifyContent="center">
         {/* Contact Information */}
-        <Grid item xs={12} md={4}>
-          <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: "10px" }}>
-            Contact Us
-          </Typography>
-          <Typography variant="body2">123 DreamOn Lane, Learning City</Typography>
-          <Typography variant="body2">+123 456 789</Typography>
-          <Typography variant="body2">info@dreamon.com</Typography>
-        </Grid>
+
 
         {/* Social Media Links */}
         <Grid item xs={12} md={4}>

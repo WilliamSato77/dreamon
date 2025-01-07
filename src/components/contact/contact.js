@@ -102,11 +102,11 @@ function Contact() {
             {/* Contact Details */}
             <Box sx={{ display: "flex", alignItems: "center", gap: "10px" }}>
               <LocationOn sx={{ color: "#1976d2" }} />
-              <Typography variant="body1">123 DreamOn Lane, Learning City</Typography>
+              <Typography variant="body1">Zomba, Malawi</Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", gap: "10px" }}>
               <Phone sx={{ color: "#1976d2" }} />
-              <Typography variant="body1">+123 456 789</Typography>
+              <Typography variant="body1">+265 884 584 274 | +265 997 267 718</Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", gap: "10px" }}>
               <Email sx={{ color: "#1976d2" }} />
