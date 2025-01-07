@@ -13,9 +13,7 @@ function Footer() {
       }}
     >
       <Grid container spacing={4} justifyContent="center">
-        {/* Contact Information */}
-
-
+       
         {/* Social Media Links */}
         <Grid item xs={12} md={4}>
           <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: "10px" }}>
