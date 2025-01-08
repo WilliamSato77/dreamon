@@ -33,6 +33,7 @@ function Contact() {
               padding: "20px",
               borderRadius: "10px",
               boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.1)",
+              borderLeft: "5px solid #1976d2", // Left side border color
               animation: "fade-in 1s ease-in-out",
             }}
           >
@@ -113,8 +114,6 @@ function Contact() {
               <Email sx={{ color: "#1976d2" }} />
               <Typography variant="body1">info@dreamon.com</Typography>
             </Box>
-
-
           </Box>
         </Grid>
       </Grid>
