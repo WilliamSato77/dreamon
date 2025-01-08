@@ -5,6 +5,7 @@ import Home from './components/home/Home.js';
 import About from './components/about/About.js';
 import Courses from './components/courses/Courses.js';
 import Contact from './components/contact/Contact.js';
+import Coursedetails from "./components/coursedetails/Coursedetails.js";
 import "./App.css";
 function App() {
   return (
