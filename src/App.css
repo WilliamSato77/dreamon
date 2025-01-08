@@ -81,4 +81,23 @@
       transform: translateY(0);
     }
   }
+  .slick-dots.custom-dots li button:before {
+    font-size: 0; /* Remove default dots */
+  }
+  
+  .slick-dots.custom-dots li.slick-active button:before {
+    background-color: #0d47a1 !important; /* Active dot color */
+  }
+  
+  .slick-dots.custom-dots {
+    bottom: -30px; /* Position dots below the carousel */
+  }
+  
+  .slick-dots.custom-dots li button:before {
+    font-size: 0; /* Remove default dot styling */
+  }
+  
+  .slick-dots.custom-dots li.slick-active button:before {
+    background-color: #0d47a1 !important; /* Active dot color */
+  }
   

@@ -1,3 +1,4 @@
+import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Nav from './components/navigation/Nav.js';
 import Footer from './components/footer/Footer.js';
@@ -6,7 +7,8 @@ import About from './components/about/About.js';
 import Courses from './components/courses/Courses.js';
 import Contact from './components/contact/Contact.js';
 import Coursedetails from './components/coursedetails/Coursedetails.js'; // New component
-import "./App.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function App() {
   return (
