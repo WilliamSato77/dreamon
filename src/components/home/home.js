@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Typography, Box } from "@mui/material";
+import { Button, Typography, Box, Divider } from "@mui/material";
 import Testimonials from "../testimonials/Testimonials"; // Ensure correct path
 
 function Home() {
@@ -47,6 +47,9 @@ function Home() {
       >
         Explore Courses
       </Button>
+
+      {/* Add Divider to separate the Explore Courses button and Testimonials */}
+      <Divider sx={{ my: 4 }} /> {/* Added margin (my) for spacing */}
 
       {/* Add Testimonials Section */}
       <Testimonials />
