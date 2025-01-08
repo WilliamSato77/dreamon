@@ -19,6 +19,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
+import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
 
 const navItems = [
   { label: "Home", icon: <HomeIcon />, path: "/" },
@@ -85,11 +86,35 @@ function Nav() {
       <AppBar position="fixed" sx={{ backgroundColor: "#1976d2", transition: "all 0.3s ease-in-out" }}>
         <Toolbar>
           {/* Title Section */}
-          <Box sx={{ flexGrow: 1 }}>
-            <Typography variant="h6" sx={{ fontWeight: "bold", lineHeight: 1 }}>
-              DreamOn
-            </Typography>
-            <Typography variant="caption" sx={{ color: "#e3f2fd" }}>
+          <Box sx={{ flexGrow: 1, display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+            <Link
+              to="/"
+              style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center" }}
+            >
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: "bold",
+                  lineHeight: 1,
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                Dream
+                <LightbulbOutlinedIcon
+                  sx={{
+                    fontSize: "1.5rem",
+                    margin: "0 5px",
+                    color: "#ffeb3b", // Yellow color for the light bulb
+                  }}
+                />
+                n
+              </Typography>
+            </Link>
+            <Typography
+              variant="caption"
+              sx={{ color: "#e3f2fd", marginTop: "2px", fontWeight: "300" }}
+            >
               Part-Time Sessions
             </Typography>
           </Box>
@@ -120,7 +145,7 @@ function Nav() {
           </Drawer>
 
           {/* Desktop Links */}
-          <Box sx={{ display: { xs: "none", md: "flex" }, gap: "10px", alignItems: "center", position: "relative" }}>
+          <Box sx={{ display: { xs: "none", md: "flex" }, gap: "10px", alignItems: "center" }}>
             {navItems.map((item, index) => (
               <Tooltip title={item.label} arrow key={index}>
                 <IconButton

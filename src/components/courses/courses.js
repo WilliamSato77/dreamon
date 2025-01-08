@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardMedia, Typography, CardActions, Button, Grid } from "@mui/material";
 import communityImage from "../../assets/development.jpg";
 import engineeringImage from "../../assets/engineering.jpg";
@@ -6,40 +7,51 @@ import computingImage from "../../assets/computer.jpg";
 import humanImage from "../../assets/human.jpg";
 import managerImage from "../../assets/manager.jpg";
 
+const courses = [
+  {
+    id: 1,
+    title: "Community Development",
+    description: "Learn how to build stronger communities.",
+    image: communityImage,
+  },
+  {
+    id: 2,
+    title: "Computer Engineering",
+    description: "Master hardware systems and digital electronics.",
+    image: engineeringImage,
+  },
+  {
+    id: 3,
+    title: "Computing and Information Systems",
+    description: "Explore programming and database systems.",
+    image: computingImage,
+  },
+  {
+    id: 4,
+    title: "Human Resource Management",
+    description: "Develop skills to manage and motivate teams effectively.",
+    image: humanImage,
+  },
+  {
+    id: 5,
+    title: "Business Management",
+    description: "Learn how to plan, organize, and oversee business operations.",
+    image: managerImage,
+  },
+];
+
 function Courses() {
-  const courseList = [
-    {
-      title: "Community Development",
-      description: "Learn how to build stronger communities.",
-      image: communityImage,
-    },
-    {
-      title: "Computer Engineering",
-      description: "Master hardware systems and digital electronics.",
-      image: engineeringImage,
-    },
-    {
-      title: "Computing and Information Systems",
-      description: "Explore programming and database systems.",
-      image: computingImage,
-    },
-    {
-      title: "Human Resource Management",
-      description: "Develop skills to manage and motivate teams effectively.",
-      image: humanImage,
-    },
-    {
-      title: "Business Management",
-      description: "Learn how to plan, organize, and oversee business operations.",
-      image: managerImage,
-    },
-  ];
+  const navigate = useNavigate();
+
+  const handleLearnMore = (id) => {
+    navigate(`/coursedetails/${id}`); // Navigate to course details with the course ID
+  };
 
   return (
     <div
       style={{
         padding: "40px",
-        paddingTop: "120px", // Added padding to account for the AppBar height
+        paddingTop: "120px", // Adjust padding to account for the navbar height
         backgroundColor: "#f9f9f9",
         minHeight: "100vh",
       }}
@@ -56,8 +68,8 @@ function Courses() {
         Our Courses
       </Typography>
       <Grid container spacing={4} justifyContent="center">
-        {courseList.map((course, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
+        {courses.map((course) => (
+          <Grid item xs={12} sm={6} md={4} key={course.id}>
             <Card
               sx={{
                 maxWidth: 345,
@@ -78,7 +90,7 @@ function Courses() {
                 }}
               />
               <CardContent>
-                <Typography variant="h5" component="div" sx={{ fontWeight: "bold" }}>
+                <Typography variant="h5" sx={{ fontWeight: "bold" }}>
                   {course.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
@@ -86,7 +98,12 @@ function Courses() {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button size="small" variant="outlined" href="#" sx={{ color: "#1976d2", borderColor: "#1976d2" }}>
+                <Button
+                  size="small"
+                  variant="outlined"
+                  onClick={() => handleLearnMore(course.id)}
+                  sx={{ color: "#1976d2", borderColor: "#1976d2" }}
+                >
                   Learn More
                 </Button>
               </CardActions>

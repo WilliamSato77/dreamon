@@ -8,6 +8,7 @@ function Home() {
       sx={{
         textAlign: "center",
         padding: { xs: "40px 20px", md: "80px 40px" },
+        paddingTop: { xs: "100px", md: "120px" }, // Added padding to account for nav height
         backgroundColor: "#f5f5f5",
         minHeight: "100vh",
       }}

@@ -7,6 +7,7 @@ function Contact() {
     <Box
       sx={{
         padding: { xs: "40px 20px", md: "80px 40px" },
+        paddingTop: { xs: "100px", md: "120px" }, // Added padding to account for nav height
         backgroundColor: "#f9f9f9",
         minHeight: "100vh",
       }}
