@@ -11,8 +11,13 @@ import {
   ListItemText,
   TextField,
   IconButton,
+  MenuItem,
+  Select,
+  FormControl,
+  InputLabel,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn"; // Cash payment icon
 
 const levels = [
   {
@@ -31,9 +36,14 @@ const levels = [
 
 function Coursedetails() {
   const [activeLevel, setActiveLevel] = useState(null); // Track the active level
+  const [deliveryMode, setDeliveryMode] = useState(""); // Track selected delivery mode
 
   const handleEnrollClick = (level) => {
     setActiveLevel((prev) => (prev === level ? null : level)); // Toggle form visibility
+  };
+
+  const handleDeliveryModeChange = (event) => {
+    setDeliveryMode(event.target.value); // Update the delivery mode selection
   };
 
   return (
@@ -64,6 +74,7 @@ function Coursedetails() {
             <Card
               sx={{
                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                borderLeft: "5px solid #1976d2", // Left side border color
                 "&:hover": {
                   transform: "translateY(-10px)",
                   boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.2)",
@@ -114,6 +125,23 @@ function Coursedetails() {
                     <TextField label="Full Name" variant="outlined" fullWidth margin="normal" required />
                     <TextField label="Email Address" variant="outlined" fullWidth margin="normal" type="email" required />
                     <TextField label="Phone Number" variant="outlined" fullWidth margin="normal" required />
+
+                    {/* Mode of Delivery Selection */}
+                    <FormControl fullWidth margin="normal">
+                      <InputLabel>Mode of Delivery</InputLabel>
+                      <Select
+                        value={deliveryMode}
+                        onChange={handleDeliveryModeChange}
+                        label="Mode of Delivery"
+                        required
+                      >
+                        <MenuItem value="weekdays_offline">Weekdays Offline</MenuItem>
+                        <MenuItem value="weekdays_online">Weekdays Online</MenuItem>
+                        <MenuItem value="weekend_online">Weekend Online</MenuItem>
+                        <MenuItem value="weekend_offline">Weekend Offline</MenuItem>
+                      </Select>
+                    </FormControl>
+
                     <Button
                       variant="contained"
                       fullWidth
@@ -150,13 +178,78 @@ function Coursedetails() {
                       "&:hover": { backgroundColor: "#1565c0" },
                     }}
                   >
-                    Enroll in Level {level.level}
+                    Enroll
                   </Button>
                 )}
               </CardContent>
             </Card>
           </Grid>
         ))}
+
+        {/* Tutorship Fee Card */}
+        <Grid item xs={12} sm={6} md={4}>
+          <Card
+            sx={{
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              borderLeft: "5px solid #1976d2", // Left border with color
+              borderRight: "5px solid #1976d2", // Added right border
+              "&:hover": {
+                transform: "translateY(-10px)",
+                boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.2)",
+              },
+            }}
+          >
+            <CardContent>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginBottom: "10px",
+                }}
+              >
+                <MonetizationOnIcon
+                  sx={{
+                    color: "#1976d2",
+                    marginRight: "8px",
+                    fontSize: "1.8rem",
+                  }}
+                />
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontWeight: "bold",
+                    textAlign: "center",
+                    color: "#1976d2",
+                  }}
+                >
+                  Tutorship Fees
+                </Typography>
+              </Box>
+
+              {/* Tutorship Fee Details */}
+              <Box>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    marginBottom: "10px",
+                    textAlign: "left",
+                  }}
+                >
+                  K35,000.00 PER course for offline lessons in all levels
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    textAlign: "left",
+                  }}
+                >
+                  K30,000.00 PER course for online lessons in all levels
+                </Typography>
+              </Box>
+            </CardContent>
+          </Card>
+        </Grid>
       </Grid>
     </Box>
   );
