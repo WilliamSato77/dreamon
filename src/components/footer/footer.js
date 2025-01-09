@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, IconButton, Grid } from "@mui/material";
-import { Facebook, Twitter, Instagram, LinkedIn } from "@mui/icons-material";
+import { Facebook, Instagram } from "@mui/icons-material";
 
 function Footer() {
   return (
@@ -13,7 +13,6 @@ function Footer() {
       }}
     >
       <Grid container spacing={4} justifyContent="center">
-       
         {/* Social Media Links */}
         <Grid item xs={12} md={4}>
           <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: "10px" }}>
@@ -21,7 +20,7 @@ function Footer() {
           </Typography>
           <Box sx={{ display: "flex", justifyContent: "center", gap: "10px" }}>
             <IconButton
-              href="https://facebook.com"
+              href="https://www.facebook.com/profile.php?id=100084805035619&mibextid=ZbWKwL"
               target="_blank"
               sx={{
                 color: "#fff",
@@ -31,17 +30,7 @@ function Footer() {
               <Facebook />
             </IconButton>
             <IconButton
-              href="https://twitter.com"
-              target="_blank"
-              sx={{
-                color: "#fff",
-                "&:hover": { color: "#90caf9" },
-              }}
-            >
-              <Twitter />
-            </IconButton>
-            <IconButton
-              href="https://instagram.com"
+              href="https://www.instagram.com/part_time_sessions/profilecard/?igsh=MTE4bDN2aDR1ZnV3bQ=="
               target="_blank"
               sx={{
                 color: "#fff",
@@ -49,16 +38,6 @@ function Footer() {
               }}
             >
               <Instagram />
-            </IconButton>
-            <IconButton
-              href="https://linkedin.com"
-              target="_blank"
-              sx={{
-                color: "#fff",
-                "&:hover": { color: "#90caf9" },
-              }}
-            >
-              <LinkedIn />
             </IconButton>
           </Box>
         </Grid>
