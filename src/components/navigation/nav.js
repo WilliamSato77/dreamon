@@ -66,6 +66,13 @@ function Nav() {
           sx={{
             backgroundColor: isActive(item.path) ? "#e3f2fd" : "transparent",
             color: isActive(item.path) ? "#1976d2" : "inherit",
+            borderRadius: "8px",
+            transition: "background-color 0.3s ease, transform 0.2s ease",
+            "&:hover": {
+              backgroundColor: "#bbdefb",
+              transform: "scale(1.05)",
+            },
+            marginBottom: "5px",
           }}
         >
           <ListItemIcon
@@ -124,9 +131,15 @@ function Nav() {
             color="inherit"
             edge="start"
             onClick={() => toggleDrawer(true)}
-            sx={{ display: { xs: "block", md: "none" } }}
+            sx={{
+              display: { xs: "block", md: "none" },
+              transition: "transform 0.3s ease",
+              "&:hover": {
+                transform: "rotate(15deg) scale(1.2)",
+              },
+            }}
           >
-            <MenuIcon />
+            <MenuIcon sx={{ fontSize: "2rem" }} />
           </IconButton>
 
           {/* Drawer for Mobile Navigation */}
@@ -137,6 +150,8 @@ function Nav() {
             transitionDuration={300}
             sx={{
               ".MuiDrawer-paper": {
+                background: "linear-gradient(to bottom, #1976d2, #64b5f6)",
+                color: "#fff",
                 animation: "fade-in 0.5s ease",
               },
             }}
