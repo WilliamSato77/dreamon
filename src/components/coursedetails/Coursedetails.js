@@ -237,7 +237,7 @@ function Coursedetails() {
           marginBottom: "30px",
         }}
       >
-        {course.title} - Course Units
+        {course.title} - Levels and units
       </Typography>
 
       <Grid container spacing={4}>
