@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import {
   Typography,
@@ -18,7 +18,6 @@ import {
   InputLabel,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 
 const coursesData = {
   1: {
@@ -327,7 +326,7 @@ function Coursedetails() {
                   <List>
                     {level.units.map((unit, index) => (
                       <ListItem key={index} disablePadding>
-                        <ListItemText primary={unit} />
+                        <ListItemText primary={`Unit ${index + 1}: ${unit}`} />
                       </ListItem>
                     ))}
                   </List>
