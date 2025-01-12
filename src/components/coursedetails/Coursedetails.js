@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import {
   Typography,
   Box,
@@ -17,45 +18,218 @@ import {
   InputLabel,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import MonetizationOnIcon from "@mui/icons-material/MonetizationOn"; // Cash payment icon
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 
-const levels = [
-  {
-    level: 4,
-    units: ["Unit 1: Basics", "Unit 2: Planning", "Unit 3: Communication", "Unit 4: Development", "Unit 5: Final Project"],
+const coursesData = {
+  1: {
+    title: "Community Development",
+    levels: [
+      {
+        level: 4,
+        units: [
+          "Introduction to community",
+          "Understanding community Development",
+          "Sociology and Social Work",
+          "Working with the vulnerables",
+          "Project Planning",
+        ],
+      },
+      {
+        level: 5,
+        units: [
+          "Leadership and Conflict",
+          "Capacity Building and Sustainability in Communities",
+          "Humanitarian Aid and Crisis Management",
+          "Community Health and Disease Management",
+          "Accessing and Managing Project Resources",
+        ],
+      },
+      {
+        level: 6,
+        units: [
+          "Community and Inter-Agency Working",
+          "Critical Engagement with Social Policy",
+          "Entrepreneurship in Communities",
+          "Reflective Practice",
+          "Project Management",
+        ],
+      },
+    ],
   },
-  {
-    level: 5,
-    units: ["Unit 1: Advanced Planning", "Unit 2: Team Dynamics", "Unit 3: Leadership", "Unit 4: Conflict Management", "Unit 5: Implementation"],
+  4: {
+    title: "Human Resource Management",
+    levels: [
+      {
+        level: 4,
+        units: [
+          "Introduction to Human Resource Management",
+          "Human Resource Planning",
+          "Recruitment and Selection",
+          "Releasing People from the Organisation",
+          "Managing Reward and Remuneration",
+        ],
+      },
+      {
+        level: 5,
+        units: [
+          "Learning and Development",
+          "Employee Engagement",
+          "Organisation Design",
+          "Performance Management",
+          "Development of Human Resource Procedures and Plans",
+        ],
+      },
+      {
+        level: 6,
+        units: [
+          "Human Resource Strategy Development",
+          "Organisational Resource Planning",
+          "Organisational Performance and Reward",
+          "Employee Engagement Strategy",
+          "Employee Relations",
+        ],
+      },
+    ],
   },
-  {
-    level: 6,
-    units: ["Unit 1: Strategy", "Unit 2: Evaluation", "Unit 3: Ethics", "Unit 4: Sustainability", "Unit 5: Thesis"],
+  3: {
+    title: "Computing and Information Systems",
+    levels: [
+      {
+        level: 4,
+        units: [
+          "Information Systems",
+          "Computer Programming",
+          "Information System Analysis and Design",
+          "Information Presentation and Analysis",
+          "Web Technologies",
+        ],
+      },
+      {
+        level: 5,
+        units: [
+          "Database Systems",
+          "Software Development",
+          "Information System Analysis and Design",
+          "Web Application Development",
+          "E-commerce Strategy",
+        ],
+      },
+      {
+        level: 6,
+        units: [
+          "Software Engineering Algorithm Design and Analysis",
+          "Enterprise Architecture",
+          "Organisational Security",
+          "IT Project Management",
+          "Scalable Web and E-commerce",
+        ],
+      },
+    ],
   },
-];
+  5: {
+    title: "Business Management",
+    levels: [
+      {
+        level: 4,
+        units: [
+          "Leadership and Management",
+          "Financial Analysis and Planning",
+          "Operations Management",
+          "Quality Management",
+          "Organisational Behaviour, Culture, and Ethics",
+        ],
+      },
+      {
+        level: 5,
+        units: [
+          "Business Strategy and Planning",
+          "Change Leadership",
+          "Customer Relationship Management",
+          "Strategic Decision Making",
+          "International Business",
+        ],
+      },
+      {
+        level: 6,
+        units: [
+          "Strategic Business Management",
+          "Managing Marketing Strategy",
+          "Management of Human Resources",
+          "Finance For Managers",
+          "Information Technology and Business",
+        ],
+      },
+    ],
+  },
+  2: {
+    title: "Computer Engineering",
+    levels: [
+      {
+        level: 4,
+        units: [
+          "Computer Systems",
+          "Computer Security",
+          "Management of Project",
+          "Network Technology",
+          "Personal Computer Software Support",
+        ],
+      },
+      {
+        level: 5,
+        units: [
+          "Human Computer Interaction",
+          "Internet Server Management",
+          "IT Security Management",
+          "Advanced Networking Technology",
+          "IT Virtualisation",
+        ],
+      },
+      {
+        level: 6,
+        units: [
+          "Data Centre Technology",
+          "Distributed and Concurrent Systems",
+          "VLSI Design and Signal Processing",
+          "Embedded and Digital Systems Engineering",
+          "Cloud Computing and Operating Systems",
+        ],
+      },
+    ],
+  },
+};
 
 function Coursedetails() {
-  const [activeLevel, setActiveLevel] = useState(null); // Track the active level
-  const [deliveryMode, setDeliveryMode] = useState(""); // Track selected delivery mode
+  const { id } = useParams(); // Retrieve course ID from route parameters
+  const [activeLevel, setActiveLevel] = useState(null);
+  const [deliveryMode, setDeliveryMode] = useState("");
+
+  const course = coursesData[id]; // Get course details based on ID
 
   const handleEnrollClick = (level) => {
-    setActiveLevel((prev) => (prev === level ? null : level)); // Toggle form visibility
+    setActiveLevel((prev) => (prev === level ? null : level));
   };
 
   const handleDeliveryModeChange = (event) => {
-    setDeliveryMode(event.target.value); // Update the delivery mode selection
+    setDeliveryMode(event.target.value);
   };
+
+  if (!course) {
+    return (
+      <Typography variant="h4" sx={{ textAlign: "center", marginTop: "50px" }}>
+        Course not found.
+      </Typography>
+    );
+  }
 
   return (
     <Box
       sx={{
         padding: "40px",
-        paddingTop: "120px", // Ensure content starts below the navbar
+        paddingTop: "120px",
         backgroundColor: "#f9f9f9",
         minHeight: "100vh",
       }}
     >
-      {/* Course Title */}
       <Typography
         variant="h3"
         sx={{
@@ -64,17 +238,16 @@ function Coursedetails() {
           marginBottom: "30px",
         }}
       >
-        Course Details
+        {course.title} - Course Details
       </Typography>
 
-      {/* Levels and Units */}
       <Grid container spacing={4}>
-        {levels.map((level) => (
+        {course.levels.map((level) => (
           <Grid item xs={12} sm={6} md={4} key={level.level}>
             <Card
               sx={{
                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                borderLeft: "5px solid #1976d2", // Left side border color
+                borderLeft: "5px solid #1976d2",
                 "&:hover": {
                   transform: "translateY(-10px)",
                   boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.2)",
@@ -82,7 +255,6 @@ function Coursedetails() {
               }}
             >
               <CardContent>
-                {/* Level Title */}
                 <Typography
                   variant="h5"
                   sx={{
@@ -95,7 +267,6 @@ function Coursedetails() {
                   Level {level.level}
                 </Typography>
 
-                {/* Enrollment Form OR Unit List */}
                 {activeLevel === level.level ? (
                   <Box
                     component="form"
@@ -105,10 +276,8 @@ function Coursedetails() {
                       borderRadius: "5px",
                       boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
                       position: "relative",
-                      animation: "slide-in 0.3s ease", // Smooth slide-in animation
                     }}
                   >
-                    {/* Close Icon */}
                     <IconButton
                       onClick={() => setActiveLevel(null)}
                       sx={{
@@ -126,7 +295,6 @@ function Coursedetails() {
                     <TextField label="Email Address" variant="outlined" fullWidth margin="normal" type="email" required />
                     <TextField label="Phone Number" variant="outlined" fullWidth margin="normal" required />
 
-                    {/* Mode of Delivery Selection */}
                     <FormControl fullWidth margin="normal">
                       <InputLabel>Mode of Delivery</InputLabel>
                       <Select
@@ -165,7 +333,6 @@ function Coursedetails() {
                   </List>
                 )}
 
-                {/* Enroll Button */}
                 {!activeLevel && (
                   <Button
                     variant="contained"
@@ -185,71 +352,6 @@ function Coursedetails() {
             </Card>
           </Grid>
         ))}
-
-        {/* Tutorship Fee Card */}
-        <Grid item xs={12} sm={6} md={4}>
-          <Card
-            sx={{
-              transition: "transform 0.3s ease, box-shadow 0.3s ease",
-              borderLeft: "5px solid #1976d2", // Left border with color
-              borderRight: "5px solid #1976d2", // Added right border
-              "&:hover": {
-                transform: "translateY(-10px)",
-                boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.2)",
-              },
-            }}
-          >
-            <CardContent>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginBottom: "10px",
-                }}
-              >
-                <MonetizationOnIcon
-                  sx={{
-                    color: "#1976d2",
-                    marginRight: "8px",
-                    fontSize: "1.8rem",
-                  }}
-                />
-                <Typography
-                  variant="h5"
-                  sx={{
-                    fontWeight: "bold",
-                    textAlign: "center",
-                    color: "#1976d2",
-                  }}
-                >
-                  Tutorship Fees
-                </Typography>
-              </Box>
-
-              {/* Tutorship Fee Details */}
-              <Box>
-                <Typography
-                  variant="body1"
-                  sx={{
-                    marginBottom: "10px",
-                    textAlign: "left",
-                  }}
-                >
-                  K35,000.00 PER course for offline lessons in all levels
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{
-                    textAlign: "left",
-                  }}
-                >
-                  K30,000.00 PER course for online lessons in all levels
-                </Typography>
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
       </Grid>
     </Box>
   );
