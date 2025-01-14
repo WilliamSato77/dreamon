@@ -16,13 +16,12 @@ import {
   Select,
   FormControl,
   InputLabel,
-  Divider,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import MonetizationOnIcon from "@mui/icons-material/MonetizationOn"; // Cash icon
-import PaymentsIcon from "@mui/icons-material/Payments"; // Payments icon
-import AccountBalanceIcon from "@mui/icons-material/AccountBalance"; // Bank icon
-import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid"; // Mobile payment icon
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import PaymentsIcon from "@mui/icons-material/Payments";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 
 const coursesData = {
   1: {
@@ -95,15 +94,119 @@ const coursesData = {
       },
     ],
   },
-  // Other courses...
+  3: {
+    title: "Computing and Information Systems",
+    levels: [
+      {
+        level: 4,
+        units: [
+          "Information Systems",
+          "Computer Programming",
+          "Information System Analysis and Design",
+          "Information Presentation and Analysis",
+          "Web Technologies",
+        ],
+      },
+      {
+        level: 5,
+        units: [
+          "Database Systems",
+          "Software Development",
+          "Information System Analysis and Design",
+          "Web Application Development",
+          "E-commerce Strategy",
+        ],
+      },
+      {
+        level: 6,
+        units: [
+          "Software Engineering Algorithm Design and Analysis",
+          "Enterprise Architecture",
+          "Organisational Security",
+          "IT Project Management",
+          "Scalable Web and E-commerce",
+        ],
+      },
+    ],
+  },
+  4: {
+    title: "Human Resource Management",
+    levels: [
+      {
+        level: 4,
+        units: [
+          "Introduction to Human Resource Management",
+          "Human Resource Planning",
+          "Recruitment and Selection",
+          "Releasing People from the Organisation",
+          "Managing Reward and Remuneration",
+        ],
+      },
+      {
+        level: 5,
+        units: [
+          "Learning and Development",
+          "Employee Engagement",
+          "Organisation Design",
+          "Performance Management",
+          "Development of Human Resource Procedures and Plans",
+        ],
+      },
+      {
+        level: 6,
+        units: [
+          "Human Resource Strategy Development",
+          "Organisational Resource Planning",
+          "Organisational Performance and Reward",
+          "Employee Engagement Strategy",
+          "Employee Relations",
+        ],
+      },
+    ],
+  },
+  5: {
+    title: "Business Management",
+    levels: [
+      {
+        level: 4,
+        units: [
+          "Leadership and Management",
+          "Financial Analysis and Planning",
+          "Operations Management",
+          "Quality Management",
+          "Organisational Behaviour, Culture, and Ethics",
+        ],
+      },
+      {
+        level: 5,
+        units: [
+          "Business Strategy and Planning",
+          "Change Leadership",
+          "Customer Relationship Management",
+          "Strategic Decision Making",
+          "International Business",
+        ],
+      },
+      {
+        level: 6,
+        units: [
+          "Strategic Business Management",
+          "Managing Marketing Strategy",
+          "Management of Human Resources",
+          "Finance For Managers",
+          "Information Technology and Business",
+        ],
+      },
+    ],
+  },
 };
 
 function Coursedetails() {
-  const { id } = useParams(); // Retrieve course ID from route parameters
+  const { id } = useParams();
   const [activeLevel, setActiveLevel] = useState(null);
   const [deliveryMode, setDeliveryMode] = useState("");
 
-  const course = coursesData[Number(id)]; // Convert `id` to a number before accessing `coursesData`
+  const course = coursesData[Number(id)];
 
   const handleEnrollClick = (level) => {
     setActiveLevel((prev) => (prev === level ? null : level));
@@ -166,7 +269,6 @@ function Coursedetails() {
                 >
                   Level {level.level}
                 </Typography>
-
                 {activeLevel === level.level ? (
                   <Box
                     component="form"
@@ -194,7 +296,6 @@ function Coursedetails() {
                     <TextField label="Full Name" variant="outlined" fullWidth margin="normal" required />
                     <TextField label="Email Address" variant="outlined" fullWidth margin="normal" type="email" required />
                     <TextField label="Phone Number" variant="outlined" fullWidth margin="normal" required />
-
                     <FormControl fullWidth margin="normal">
                       <InputLabel>Mode of Delivery</InputLabel>
                       <Select
@@ -209,7 +310,6 @@ function Coursedetails() {
                         <MenuItem value="weekend_offline">Weekend Offline</MenuItem>
                       </Select>
                     </FormControl>
-
                     <Button
                       variant="contained"
                       fullWidth
@@ -232,7 +332,6 @@ function Coursedetails() {
                     ))}
                   </List>
                 )}
-
                 {!activeLevel && (
                   <Button
                     variant="contained"
@@ -257,24 +356,41 @@ function Coursedetails() {
         <Grid item xs={12} sm={6} md={4}>
           <Card
             sx={{
-              backgroundColor: "#e3f2fd",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
               borderLeft: "5px solid #1976d2",
               "&:hover": {
-                boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)",
+                transform: "translateY(-10px)",
+                boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.2)",
               },
             }}
           >
             <CardContent>
-              <Box sx={{ display: "flex", alignItems: "center", marginBottom: "10px" }}>
-                <MonetizationOnIcon sx={{ fontSize: "2rem", color: "#1976d2", marginRight: "8px" }} />
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginBottom: "15px",
+                }}
+              >
+                <MonetizationOnIcon
+                  sx={{ fontSize: "2.5rem", color: "#1976d2", marginRight: "10px" }}
+                />
                 <Typography variant="h5" sx={{ fontWeight: "bold", color: "#1976d2" }}>
                   Tutorship Fee
                 </Typography>
               </Box>
-              <Divider sx={{ marginY: 2 }} />
-              <Typography>Offline: K35,000.00 per unit for all levels</Typography>
-              <Typography>Online: K35,000.00 per unit for all levels</Typography>
-              <Typography>Registration fee: K5000.00</Typography>
+              <List>
+                <ListItem>
+                  <ListItemText primary="Offline: K35,000.00 per unit for all levels" />
+                </ListItem>
+                <ListItem>
+                  <ListItemText primary="Online: K35,000.00 per unit for all levels" />
+                </ListItem>
+                <ListItem>
+                  <ListItemText primary="Registration Fee: K5000.00" />
+                </ListItem>
+              </List>
             </CardContent>
           </Card>
         </Grid>
@@ -283,37 +399,49 @@ function Coursedetails() {
         <Grid item xs={12} sm={6} md={4}>
           <Card
             sx={{
-              backgroundColor: "#f1f8e9",
-              borderLeft: "5px solid #4caf50",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              borderLeft: "5px solid #1976d2",
               "&:hover": {
-                boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)",
+                transform: "translateY(-10px)",
+                boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.2)",
               },
             }}
           >
             <CardContent>
-              <Box sx={{ display: "flex", alignItems: "center", marginBottom: "10px" }}>
-                <PaymentsIcon sx={{ fontSize: "2rem", color: "#4caf50", marginRight: "8px" }} />
-                <Typography variant="h5" sx={{ fontWeight: "bold", color: "#4caf50" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginBottom: "15px",
+                }}
+              >
+                <PaymentsIcon
+                  sx={{ fontSize: "2.5rem", color: "#1976d2", marginRight: "10px" }}
+                />
+                <Typography variant="h5" sx={{ fontWeight: "bold", color: "#1976d2" }}>
                   Payment Methods
                 </Typography>
               </Box>
-              <Divider sx={{ marginY: 2 }} />
               <List>
                 <ListItem>
-                  <AccountBalanceIcon sx={{ color: "#4caf50", marginRight: "8px" }} />
+                  <AccountBalanceIcon sx={{ color: "#1565c0", marginRight: "10px" }} />
                   <ListItemText primary="National Bank: 1002298728" />
                 </ListItem>
                 <ListItem>
-                  <AccountBalanceIcon sx={{ color: "#4caf50", marginRight: "8px" }} />
+                  <AccountBalanceIcon sx={{ color: "#1565c0", marginRight: "10px" }} />
                   <ListItemText primary="Standard Bank: 9100001812685" />
                 </ListItem>
                 <ListItem>
-                  <PhoneAndroidIcon sx={{ color: "#4caf50", marginRight: "8px" }} />
+                  <PhoneAndroidIcon sx={{ color: "#4caf50", marginRight: "10px" }} />
                   <ListItemText primary="TNM Mpamba: 0884584374" />
                 </ListItem>
                 <ListItem>
-                  <PhoneAndroidIcon sx={{ color: "#4caf50", marginRight: "8px" }} />
+                  <PhoneAndroidIcon sx={{ color: "#f44336", marginRight: "10px" }} />
                   <ListItemText primary="Airtel Money: 0997267718" />
+                </ListItem>
+                <ListItem>
+                  <ListItemText primary="Cash Payment is Accepted" sx={{ fontStyle: "italic" }} />
                 </ListItem>
               </List>
             </CardContent>
