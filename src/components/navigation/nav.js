@@ -23,8 +23,8 @@ import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
 
 const navItems = [
   { label: "Home", icon: <HomeIcon />, path: "/" },
-  { label: "About Us", icon: <InfoIcon />, path: "/about" },
   { label: "Courses", icon: <MenuBookIcon />, path: "/courses" },
+  { label: "About Us", icon: <InfoIcon />, path: "/about" },
   { label: "Contact Us", icon: <ContactMailIcon />, path: "/contact" },
 ];
 
@@ -39,7 +39,6 @@ function Nav() {
 
   const isActive = (path) => location.pathname === path;
 
-  // Hide AppBar on scroll down, show on scroll up
   React.useEffect(() => {
     let lastScrollY = window.scrollY;
     const handleScroll = () => {
@@ -92,7 +91,6 @@ function Nav() {
     <Slide in={showBar} direction="down" timeout={500}>
       <AppBar position="fixed" sx={{ backgroundColor: "#1976d2", transition: "all 0.3s ease-in-out" }}>
         <Toolbar>
-          {/* Title Section */}
           <Box sx={{ flexGrow: 1, display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
             <Link
               to="/"
@@ -112,7 +110,7 @@ function Nav() {
                   sx={{
                     fontSize: "1.5rem",
                     margin: "0 5px",
-                    color: "#ffeb3b", // Yellow color for the light bulb
+                    color: "#ffeb3b",
                   }}
                 />
                 n
@@ -126,7 +124,6 @@ function Nav() {
             </Typography>
           </Box>
 
-          {/* Hamburger Menu for Mobile */}
           <IconButton
             color="inherit"
             edge="start"
@@ -142,7 +139,6 @@ function Nav() {
             <MenuIcon sx={{ fontSize: "2rem" }} />
           </IconButton>
 
-          {/* Drawer for Mobile Navigation */}
           <Drawer
             anchor="left"
             open={drawerOpen}
@@ -159,7 +155,6 @@ function Nav() {
             {drawerContent}
           </Drawer>
 
-          {/* Desktop Links */}
           <Box sx={{ display: { xs: "none", md: "flex" }, gap: "10px", alignItems: "center" }}>
             {navItems.map((item, index) => (
               <Tooltip title={item.label} arrow key={index}>
