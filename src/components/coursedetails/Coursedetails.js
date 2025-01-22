@@ -16,6 +16,7 @@ import {
   Select,
   FormControl,
   InputLabel,
+  Divider,
 } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import CloseIcon from "@mui/icons-material/Close";
@@ -158,7 +159,7 @@ function Coursedetails() {
                     fontSize: { xs: "1rem", md: "1.5rem" },
                   }}
                 >
-                  level {level.level}
+                  Level {level.level}
                 </Typography>
                 {activeLevel === level.level ? (
                   <Box
@@ -282,6 +283,90 @@ function Coursedetails() {
             </Card>
           </Grid>
         ))}
+      </Grid>
+
+      {/* Tutorship Fee Structure and Payment Methods */}
+      <Grid container spacing={4} sx={{ marginTop: "30px" }}>
+        <Grid item xs={12} sm={6}>
+          <Card
+            sx={{
+              borderLeft: "5px solid #1976d2",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              "&:hover": {
+                transform: "translateY(-10px)",
+                boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.2)",
+              },
+            }}
+          >
+            <CardContent>
+              <Typography
+                variant="h5"
+                sx={{
+                  fontWeight: "bold",
+                  textAlign: "center",
+                  color: "#1976d2",
+                  fontSize: { xs: "1rem", md: "1.5rem" },
+                  marginBottom: "10px",
+                }}
+              >
+                Tutorship Fee Structure
+              </Typography>
+              <Typography sx={{ marginBottom: "15px" }}>
+                The fee structure for the courses is as follows:
+              </Typography>
+              <Typography sx={{ marginBottom: "10px" }}>
+                <strong>Offline:</strong> K35,000 for all courses, all levels
+              </Typography>
+              <Typography sx={{ marginBottom: "10px" }}>
+                <strong>Online:</strong> K30,000 for all courses, all levels
+              </Typography>
+              <Typography sx={{ marginBottom: "15px" }}>
+                <strong>Registration fee:</strong> K5,000.00
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        <Divider orientation="vertical" flexItem sx={{ marginTop: "30px", marginBottom: "30px" }} />
+
+        <Grid item xs={12} sm={6}>
+          <Card
+            sx={{
+              borderLeft: "5px solid #1976d2",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              "&:hover": {
+                transform: "translateY(-10px)",
+                boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.2)",
+              },
+            }}
+          >
+            <CardContent>
+              <Typography
+                variant="h5"
+                sx={{
+                  fontWeight: "bold",
+                  textAlign: "center",
+                  color: "#1976d2",
+                  fontSize: { xs: "1rem", md: "1.5rem" },
+                  marginBottom: "10px",
+                }}
+              >
+                Payment Methods
+              </Typography>
+              <List>
+                <ListItem>
+                  <ListItemText primary="Bank Transfer" />
+                </ListItem>
+                <ListItem>
+                  <ListItemText primary="Mobile Money" />
+                </ListItem>
+                <ListItem>
+                  <ListItemText primary="Credit/Debit Cards" />
+                </ListItem>
+              </List>
+            </CardContent>
+          </Card>
+        </Grid>
       </Grid>
     </Box>
   );
