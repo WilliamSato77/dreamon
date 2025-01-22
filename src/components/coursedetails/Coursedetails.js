@@ -92,7 +92,7 @@ function Coursedetails() {
     <Box
       sx={{
         padding: "40px",
-        paddingTop: "120px",
+        paddingTop: "100px",
         backgroundColor: "#f9f9f9",
         minHeight: "100vh",
       }}
@@ -103,7 +103,8 @@ function Coursedetails() {
           textAlign: "center",
           fontWeight: "bold",
           marginBottom: "30px",
-          fontSize: "2.5rem",
+          fontSize: "2rem", // Resized for better readability
+          lineHeight: "1.4",
           background: "linear-gradient(90deg, #1976d2, #42a5f5)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
@@ -128,13 +129,13 @@ function Coursedetails() {
             >
               <CardContent>
                 <Typography
-                  variant="h5"
+                  variant="h6"
                   sx={{
                     fontWeight: "bold",
                     marginBottom: "10px",
                     textAlign: "center",
                     color: "#1976d2",
-                    fontSize: "1.4rem",
+                    fontSize: "1.1rem", // Resized level title
                     textTransform: "uppercase",
                     textShadow: "1px 1px 2px rgba(0, 0, 0, 0.2)",
                   }}
@@ -163,7 +164,14 @@ function Coursedetails() {
                     >
                       <CloseIcon />
                     </IconButton>
-                    <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: "10px" }}>
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        fontWeight: "bold",
+                        marginBottom: "10px",
+                        fontSize: "1rem",
+                      }}
+                    >
                       Enrollment Form
                     </Typography>
                     <TextField
@@ -244,7 +252,10 @@ function Coursedetails() {
                   <List>
                     {level.units.map((unit, index) => (
                       <ListItem key={index} disablePadding>
-                        <ListItemText primary={`Unit ${index + 1}: ${unit}`} />
+                        <ListItemText
+                          primary={`Unit ${index + 1}: ${unit}`}
+                          primaryTypographyProps={{ fontSize: "0.9rem" }}
+                        />
                       </ListItem>
                     ))}
                   </List>
