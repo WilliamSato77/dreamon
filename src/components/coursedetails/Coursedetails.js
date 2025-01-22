@@ -22,7 +22,7 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const coursesData = {
   1: {
-    title: "Community Development",
+    title: "Community development",
     levels: [
       { level: 4, units: ["Introduction to community", "Understanding community Development", "Sociology and Social Work", "Working with the vulnerables", "Project Planning"] },
       { level: 5, units: ["Leadership and Conflict", "Capacity Building", "Humanitarian Aid and Crisis Management", "Community Health and Disease Management", "Accessing Project Resources"] },
@@ -30,7 +30,7 @@ const coursesData = {
     ],
   },
   2: {
-    title: "Computer Engineering",
+    title: "Computer engineering",
     levels: [
       { level: 4, units: ["Computer Systems", "Computer Security", "Management of Project", "Network Technology", "Software Support"] },
       { level: 5, units: ["Human Computer Interaction", "Server Management", "IT Security Management", "Advanced Networking", "Virtualisation"] },
@@ -38,7 +38,7 @@ const coursesData = {
     ],
   },
   3: {
-    title: "Computing and Information Systems",
+    title: "Computing and information systems",
     levels: [
       { level: 4, units: ["Information Systems", "Programming", "Analysis and Design", "Data Presentation", "Web Technologies"] },
       { level: 5, units: ["Database Systems", "Software Development", "Web Development", "E-commerce Strategy", "IT Strategy"] },
@@ -46,7 +46,7 @@ const coursesData = {
     ],
   },
   4: {
-    title: "Human Resource Management",
+    title: "Human resource management",
     levels: [
       { level: 4, units: ["Introduction to HRM", "Employee Relations", "Organizational Behavior", "Workplace Diversity", "Recruitment and Selection"] },
       { level: 5, units: ["Employee Training and Development", "Compensation Management", "HRM Strategies", "Labor Laws", "Performance Management"] },
@@ -54,7 +54,7 @@ const coursesData = {
     ],
   },
   5: {
-    title: "Business Management",
+    title: "Business management",
     levels: [
       { level: 4, units: ["Introduction to Business", "Management Principles", "Marketing Fundamentals", "Financial Accounting", "Business Ethics"] },
       { level: 5, units: ["Operations Management", "Business Strategy", "Entrepreneurship", "Organizational Leadership", "Human Resource Management"] },
@@ -106,7 +106,7 @@ function Coursedetails() {
             marginBottom: "30px",
             fontSize: { xs: "2rem", md: "3rem" },
             color: "#1976d2",
-            textTransform: "uppercase",
+            textTransform: "capitalize",
           }}
         >
           {course.title} - Levels and Units
@@ -137,7 +137,7 @@ function Coursedetails() {
                     fontSize: { xs: "1rem", md: "1.5rem" },
                   }}
                 >
-                  Level {level.level}
+                  level {level.level}
                 </Typography>
                 {activeLevel === level.level ? (
                   <Box
