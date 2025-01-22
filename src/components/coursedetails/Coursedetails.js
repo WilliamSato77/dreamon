@@ -355,13 +355,16 @@ function Coursedetails() {
               </Typography>
               <List>
                 <ListItem>
-                  <ListItemText primary="Bank Transfer" />
+                  <ListItemText primary="National Bank: 1002298728" />
                 </ListItem>
                 <ListItem>
-                  <ListItemText primary="Mobile Money" />
+                  <ListItemText primary="Standard Bank: 910001812685" />
                 </ListItem>
                 <ListItem>
-                  <ListItemText primary="Credit/Debit Cards" />
+                  <ListItemText primary="TNM Mpamba: 0884 584 374" />
+                </ListItem>
+                <ListItem>
+                  <ListItemText primary="Airtel Money: 0997 267 718" />
                 </ListItem>
               </List>
             </CardContent>
