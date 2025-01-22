@@ -45,6 +45,22 @@ const coursesData = {
       { level: 6, units: ["Algorithm Design", "Enterprise Architecture", "Security", "IT Project Management", "Scalable Systems"] },
     ],
   },
+  4: {
+    title: "Human Resource Management",
+    levels: [
+      { level: 4, units: ["Introduction to HRM", "Employee Relations", "Organizational Behavior", "Workplace Diversity", "Recruitment and Selection"] },
+      { level: 5, units: ["Employee Training and Development", "Compensation Management", "HRM Strategies", "Labor Laws", "Performance Management"] },
+      { level: 6, units: ["HR Analytics", "Leadership and Decision Making", "Employee Engagement", "Strategic HRM", "Global HRM"] },
+    ],
+  },
+  5: {
+    title: "Business Management",
+    levels: [
+      { level: 4, units: ["Introduction to Business", "Management Principles", "Marketing Fundamentals", "Financial Accounting", "Business Ethics"] },
+      { level: 5, units: ["Operations Management", "Business Strategy", "Entrepreneurship", "Organizational Leadership", "Human Resource Management"] },
+      { level: 6, units: ["Strategic Management", "Business Analytics", "Global Business", "Supply Chain Management", "Corporate Governance"] },
+    ],
+  },
 };
 
 function Coursedetails() {
@@ -74,19 +90,28 @@ function Coursedetails() {
 
   return (
     <Box sx={{ padding: "40px", paddingTop: "120px", backgroundColor: "#f9f9f9", minHeight: "100vh" }}>
-      <Typography
-        variant="h2"
-        sx={{
-          textAlign: "center",
-          fontWeight: "bold",
-          marginBottom: "30px",
-          fontSize: { xs: "2rem", md: "3rem" },
-          color: "#1976d2",
-          textTransform: "uppercase",
-        }}
-      >
-        {course.title} - Levels and Units
-      </Typography>
+      <Box sx={{
+        position: "sticky",
+        top: 0,
+        backgroundColor: "#fff",
+        zIndex: 100,
+        padding: "10px 0",
+        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+      }}>
+        <Typography
+          variant="h2"
+          sx={{
+            textAlign: "center",
+            fontWeight: "bold",
+            marginBottom: "30px",
+            fontSize: { xs: "2rem", md: "3rem" },
+            color: "#1976d2",
+            textTransform: "uppercase",
+          }}
+        >
+          {course.title} - Levels and Units
+        </Typography>
+      </Box>
 
       <Grid container spacing={4}>
         {course.levels.map((level) => (
