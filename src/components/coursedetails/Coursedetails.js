@@ -90,7 +90,7 @@ function Coursedetails() {
 
   return (
     <Box sx={{ padding: "40px", paddingTop: "120px", backgroundColor: "#f9f9f9", minHeight: "100vh" }}>
-      {/* Sticky title box with enhanced styles */}
+      {/* Sticky course content box */}
       <Box
         sx={{
           position: "sticky",
@@ -115,9 +115,23 @@ function Coursedetails() {
             color: "#ffffff",
           }}
         >
-          {course.title} - Levels and Units
+          {course.title}
         </Typography>
       </Box>
+
+      {/* Course title below the course content */}
+      <Typography
+        variant="h4"
+        sx={{
+          textAlign: "center",
+          marginBottom: "30px",
+          fontSize: { xs: "1.5rem", md: "2rem" },
+          fontWeight: "bold",
+          color: "#1976d2",
+        }}
+      >
+        Levels and Units
+      </Typography>
 
       {/* Course content */}
       <Grid container spacing={4}>
