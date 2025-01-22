@@ -90,29 +90,36 @@ function Coursedetails() {
 
   return (
     <Box sx={{ padding: "40px", paddingTop: "120px", backgroundColor: "#f9f9f9", minHeight: "100vh" }}>
-      <Box sx={{
-        position: "sticky",
-        top: 0,
-        backgroundColor: "#fff",
-        zIndex: 100,
-        padding: "10px 0",
-        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-      }}>
+      {/* Sticky title box with enhanced styles */}
+      <Box
+        sx={{
+          position: "sticky",
+          top: 0,
+          backgroundColor: "#ffffff",
+          zIndex: 100,
+          padding: "20px 0",
+          boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.1)",
+          borderRadius: "10px",
+          backgroundImage: "linear-gradient(to right, #1976d2, #1565c0)",
+          color: "#ffffff",
+          textAlign: "center",
+          marginBottom: "30px",
+        }}
+      >
         <Typography
           variant="h2"
           sx={{
-            textAlign: "center",
             fontWeight: "bold",
-            marginBottom: "30px",
             fontSize: { xs: "2rem", md: "3rem" },
-            color: "#1976d2",
             textTransform: "capitalize",
+            color: "#ffffff",
           }}
         >
           {course.title} - Levels and Units
         </Typography>
       </Box>
 
+      {/* Course content */}
       <Grid container spacing={4}>
         {course.levels.map((level) => (
           <Grid item xs={12} sm={6} md={4} key={level.level}>
