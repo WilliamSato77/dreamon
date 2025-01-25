@@ -1,8 +1,21 @@
 import React from "react";
 import { Box, Grid, TextField, Button, Typography, Card, CardContent } from "@mui/material";
 import { Phone, Email, LocationOn } from "@mui/icons-material";
+import { useForm } from "react-hook-form";
 
 function Contact() {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log("Form Data:", data);
+    reset(); // Clear the form after submission
+  };
+
   return (
     <Box
       sx={{
@@ -48,13 +61,15 @@ function Contact() {
               >
                 Get in Touch
               </Typography>
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <TextField
                   fullWidth
                   label="Your Name"
                   variant="outlined"
                   margin="normal"
-                  required
+                  {...register("name", { required: "Name is required" })}
+                  error={!!errors.name}
+                  helperText={errors.name?.message}
                 />
                 <TextField
                   fullWidth
@@ -62,7 +77,15 @@ function Contact() {
                   variant="outlined"
                   margin="normal"
                   type="email"
-                  required
+                  {...register("email", {
+                    required: "Email is required",
+                    pattern: {
+                      value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                      message: "Invalid email address",
+                    },
+                  })}
+                  error={!!errors.email}
+                  helperText={errors.email?.message}
                 />
                 <TextField
                   fullWidth
@@ -71,11 +94,14 @@ function Contact() {
                   margin="normal"
                   multiline
                   rows={4}
-                  required
+                  {...register("message", { required: "Message is required" })}
+                  error={!!errors.message}
+                  helperText={errors.message?.message}
                 />
                 <Button
                   variant="contained"
                   size="large"
+                  type="submit"
                   sx={{
                     backgroundColor: "#1976d2",
                     color: "#fff",
